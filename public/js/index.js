@@ -17,7 +17,7 @@
 var url = 'https://api.openweathermap.org/data/2.5/onecall?lat=38&lon=127&appid=f1856687e44a2152718f62479b072e09&units=metric&exclude=minutely,hourly'
 
 /*************************** 전역설정 ***********************************/
-
+var map;
 var weatherUrl= 'https://api.openweathermap.org/data/2.5/weather';
 var params = {
 	appid: 'f1856687e44a2152718f62479b072e09',
@@ -31,6 +31,7 @@ var params = {
 
 navigator.geolocation.getCurrentPosition(onGetPosition, onGetPositionError);
 
+mapInit()
 
 /*************************** 이벤트콜백 ***********************************/
 function onGetPosition(r){
@@ -46,13 +47,43 @@ function onGetWeather(r){
 	updateBg(r.weather[0].icon)
 }
 
+function onGetCity(r){
+	createMarker(r.cities)
+}
 
 
 /*************************** 사용자함수 ***********************************/
+
+function createMarker(v){
+	for(var i in v){
+		var content = '<div class ="label" style="background-color: #000">'+v[i].name+'</span><span class="right"></span></div>';
+		var position = new kakao.maps.LatLng(v[i].lat, v[i].lon);
+    var customOverlay = new kakao.maps.CustomOverlay({
+			position: position,
+			content: content
+		});
+		customOverlay.setMap(map);
+	}
+}
+
 function getWeather(lat,lon){
 	params.lat = lat
 	params.lon = lon
 	$.get(weatherUrl,params,onGetWeather);
+}
+
+
+function mapInit(){
+	var mapOption = { 
+		center: new kakao.maps.LatLng(35.8, 127.8), // 지도의 중심좌표
+		level: 13 // 지도의 확대 레벨
+	};
+	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	map = new kakao.maps.Map($('#map')[0], mapOption);
+	map.setDraggable(false);
+	map.setZoomable(false);
+
+	$.get('../json/city.json',onGetCity);
 }
 
 function updateBg(icon){
@@ -101,9 +132,8 @@ function updateBg(icon){
 			bg = '50n-bg.jpg';
 			break;
 	}
-	$('.wrapper').css('background-image','url(../img/'+bg+')')
+	$('.all-wrapper').css('background-image','url(../img/'+bg+')')
 }
-
 
 
 
