@@ -11,7 +11,7 @@ body {
 }
 
 .wrapper {
-	max: 1200px;
+	max-width: 1200px;
 	margin: auto;
 }
 
@@ -23,20 +23,34 @@ body {
 	color: #f9f9f9;
 	border-radius: 4px;
 	text-align: center;
-	padding-right: 8px;
+	padding-right: 4px;
 	font-weight: lighter;
+	font-size: 0.875em;
+	top: -53px;
+	text-shadow: #000;
+	
+}
+.popper.lt{left: 0;}
+.popper.ct{left: -40px;}
+.popper.rt{left: -80px;}
+.popper.lt > .fa{left: 6px;}
+.popper.ct > .fa{left: calc(50% - 5px);}
+.popper.rt > .fa{right: 6px;}
+
+.popper .img-wrap{
+	width: 40px;
 }
 .popper .name{
-	margin-bottom: 4px;
+	margin-bottom: 2px;
 }
 .popper .temp{
 
 }
 .popper .fa {
-	color: rgb(102, 206, 98);
+	color: rgb(91, 184, 88);
 	position: absolute;
 	bottom: -10px;
-	left: 50%;
+	font-size: 1.25em;
 }
 
 

@@ -28,6 +28,10 @@ var params = {
 
 
 /*************************** 이벤트등록 ***********************************/
+$('#map').dblclick(function(){
+	e.preventDefault();
+	
+})
 
 navigator.geolocation.getCurrentPosition(onGetPosition, onGetPositionError);
 
@@ -48,7 +52,7 @@ function onGetWeather(r){
 }
 
 function onGetCity(r){
-	createMarker(r.cities)
+	createMarker(r.cities);
 }
 
 
@@ -56,7 +60,17 @@ function onGetCity(r){
 
 function createMarker(v){
 	for(var i in v){
-		var content = '<div class ="label" style="background-color: #000">'+v[i].name+'</span><span class="right"></span></div>';
+		var content = '';
+		content+='<div class="popper '+v[i].class+'">';
+		content+='<div class="img-wrap">';
+		content+='<img src="http://openweathermap.org/img/wn/10d.png" alt="아이콘" class="mw-100">';
+		content+='</div>';
+		content+='<div class="cont-wrap">';
+		content+='<div class="name">'+v[i].name+'</div>';
+		content+='<div class="temp">24도</div>';
+		content+='</div>';
+		content+='<i class="fa fa-caret-down"></i>';
+		content+='</div>';
 		var position = new kakao.maps.LatLng(v[i].lat, v[i].lon);
     var customOverlay = new kakao.maps.CustomOverlay({
 			position: position,
@@ -75,7 +89,7 @@ function getWeather(lat,lon){
 
 function mapInit(){
 	var mapOption = { 
-		center: new kakao.maps.LatLng(35.8, 127.8), // 지도의 중심좌표
+		center: new kakao.maps.LatLng(35.8, 127.7), // 지도의 중심좌표
 		level: 13 // 지도의 확대 레벨
 	};
 	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
