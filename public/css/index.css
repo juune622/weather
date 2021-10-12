@@ -15,43 +15,7 @@ body {
 	margin: auto;
 }
 
-.popper {
-	display: flex;
-	align-items: center;
-	position: absolute;
-	background-color: rgb(102, 206, 98);
-	color: #f9f9f9;
-	border-radius: 4px;
-	text-align: center;
-	padding-right: 4px;
-	font-weight: lighter;
-	font-size: 0.875em;
-	top: -53px;
-	text-shadow: #000;
-	
-}
-.popper.lt{left: 0;}
-.popper.ct{left: -40px;}
-.popper.rt{left: -80px;}
-.popper.lt > .fa{left: 6px;}
-.popper.ct > .fa{left: calc(50% - 5px);}
-.popper.rt > .fa{right: 6px;}
 
-.popper .img-wrap{
-	width: 40px;
-}
-.popper .name{
-	margin-bottom: 2px;
-}
-.popper .temp{
-
-}
-.popper .fa {
-	color: rgb(91, 184, 88);
-	position: absolute;
-	bottom: -10px;
-	font-size: 1.25em;
-}
 
 
 
@@ -92,12 +56,61 @@ body {
 .cont-wrapper>.map-wrap {
 	flex: 400px 0 0;
 	height: 600px;
+	border-radius: 10px;
 }
+
+.map-wrap .popper {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	background-color: rgb(102, 206, 98);
+	color: #f9f9f9;
+	border-radius: 4px;
+	text-align: center;
+	padding-right: 3px;
+	font-weight: lighter;
+	font-size: 0.75em;
+	top: -45px;
+	text-shadow: #000;
+	
+}
+.map-wrap .popper.lt{left: 0;}
+.map-wrap .popper.ct{left: -40px;}
+.map-wrap .popper.rt{left: -60px;}
+.map-wrap .popper.lt > .fa{left: 6px;}
+.map-wrap .popper.ct > .fa{left: calc(50% - 5px);}
+.map-wrap .popper.rt > .fa{right: 6px;}
+
+.map-wrap .popper .img-wrap{
+	width: 35px;
+}
+.map-wrap .popper .name{
+	margin-bottom: 2px;
+}
+.map-wrap .popper .temp{
+
+}
+.map-wrap .popper .fa {
+	color: rgb(91, 184, 88);
+	position: absolute;
+	bottom: -10px;
+	font-size: 1.5em;
+}
+
+.cont-wrapper > .city-wrap{
+	display: none;
+	flex: 100% 0 0;
+}
+.cont-wrapper .city{border:1px solid rgba(255,255,255,0.3);margin: 0.5%;}
+.cont-wrapper .city > .name{text-align: center;padding: 4px;font-size: 1.2em;background-color: rgba(0,0,0,0.7);}
+.cont-wrapper .city > .content{display: flex;align-items: center; line-height: 1.2;padding: 4px 8px;background-color: rgba(0,0,0,0.15);}
 
 .cont-wrapper>.weather-wrap {
 	flex: 100% 0 1;
 	margin-left: 5%;
 }
+
+
 
 
 
@@ -110,13 +123,23 @@ body {
 	.all-wrapper {
 		padding: 5% 3%;
 	}
+	.cont-wrapper{
+		flex-wrap: wrap;
+	}
 
 	.cont-wrapper>.map-wrap {
 		display: none;
 	}
+	.cont-wrapper > .city-wrap{
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		flex: 100% 0 0;
+	}
 
 	.cont-wrapper>.weather-wrap {
 		margin-left: 0;
+		flex: 100% 0 0;
 	}
 }
 
