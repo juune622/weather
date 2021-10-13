@@ -6,7 +6,7 @@
 // openweathermap : f1856687e44a2152718f62479b072e09
 //kakao : e92ce151565a21f7fded660942cbf7c8
 
-//7days: // 7days: https://api.openweathermap.org/data/2.5/onecall?lat=38&lon=127&appid=f1856687e44a2152718f62479b072e09&units=metric&exclude=minutely,hourly
+//7days: // 7days: https://api.openweathermap.org/data/2.5/onecall?lat=38&lon=127&appid=f1856687e44a2152718f62479b072e09&units=metric&exclude=minutely,hourly,current
 
 //http://openweathermap.org/img/wn/10d.png
 
@@ -17,10 +17,12 @@ var map;
 var cities;
 var cityCnt = 0; //onCreateMarker에서 객수를 센다
 var weatherUrl= 'https://api.openweathermap.org/data/2.5/weather';
+var oneCallUrl= 'https://api.openweathermap.org/data/2.5/onecall';
 var params = {
 	appid: 'f1856687e44a2152718f62479b072e09',
 	units:'metric',
-	lang:'kr'
+	lang:'kr',
+	exclude:'minutely,current'
 }
 
 
@@ -49,6 +51,7 @@ function onGetWeather(r){
 	updateDaily(r);
 	updateBg(r.weather[0].icon)
 }
+
 
 function onGetCity(r){
 	//createMarker(r.cities);
@@ -119,6 +122,10 @@ function onCreateMarker(r){
 	}
 }
 
+function onGetWeekly(r){
+	console.log(r)
+}
+
 
 /*************************** 사용자함수 ***********************************/
 
@@ -148,6 +155,7 @@ function getWeather(param,param2){
 	}
 	
 	$.get(weatherUrl,params,onGetWeather);
+	$.get(oneCallUrl,params,onGetWeekly);
 }
 
 

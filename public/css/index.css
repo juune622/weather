@@ -31,6 +31,7 @@ body {
 	font-family: inherit;
 	padding: 3%;
 	color: #f9f9f9;
+	height: 100vh;
 }
 /* 타이틀 */
 .title-wrapper {
