@@ -38,7 +38,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 2em;
-	user-select: none;
+	
 }
 
 .title-wrapper .version {
@@ -74,7 +74,7 @@ body {
 	font-size: 0.75em;
 	top: -45px;
 	text-shadow: #000;
-	
+	cursor: pointer;
 }
 .map-wrap .popper.lt{left: 0;}
 .map-wrap .popper.ct{left: -40px;}
@@ -105,10 +105,10 @@ body {
 }
 .cont-wrapper .city-wrap{width: 100%;position: relative;padding: 0 3%;}
 .cont-wrapper .city-wrap .swiper-container{width: 100%;}
-.cont-wrapper .city-wrap .bt-arrow{font-size: 2em;position: absolute;top: 50%;transform: translateY(-50%);z-index: 9;cursor: pointer;user-select: none;}
+.cont-wrapper .city-wrap .bt-arrow{font-size: 2em;position: absolute;top: 50%;transform: translateY(-50%);z-index: 9;cursor: pointer;}
 .cont-wrapper .city-wrap .bt-prev{left: -7px;}
 .cont-wrapper .city-wrap .bt-next{right: -7px;}
-.cont-wrapper .city-wrap .city{border:1px solid rgba(255,255,255,0.3);border-radius: 8px;overflow: hidden;user-select: none;}
+.cont-wrapper .city-wrap .city{border:1px solid rgba(255,255,255,0.3);border-radius: 8px;overflow: hidden;cursor: pointer;}
 .cont-wrapper .city-wrap .city > .name{text-align: center;padding: 8px;font-size: 1.2em;background-color: rgba(0,0,0,0.7);}
 .cont-wrapper .city-wrap .city > .content{display: flex;align-items: center; line-height: 1.2;padding: 4px 12px 4px 4px;background-color: rgba(0,0,0,0.15);}
 
