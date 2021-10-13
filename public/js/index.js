@@ -46,7 +46,7 @@ function onGetPositionError(e){
 
 function onGetWeather(r){
 	console.log(r)
-	console.log(r.weather[0].icon);
+	updateDaily(r);
 	updateBg(r.weather[0].icon)
 }
 
@@ -122,7 +122,18 @@ function onCreateMarker(r){
 
 /*************************** 사용자함수 ***********************************/
 
-
+function updateDaily(r){
+	var src = 'http://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png' 
+	$('.daily-container .city').html(r.name + ','+r.sys.country)
+	$('.daily-container .img-wrap img').attr('src', src)
+	$('.daily-container .temp-wrap h3').html(r.main.temp+'˚')
+	$('.daily-container .temp-wrap div').html('(체감온도 '+r.main.feels_like+'˚)')
+	$('.daily-container .info-wrap h3').html(''+r.weather[0].main+' <small>('+r.weather[0].description+')</small>')
+	$('.daily-container .info-wrap .temp .info').eq(0).html(r.main.temp_max+'˚')
+	$('.daily-container .info-wrap .temp .info').eq(1).html(r.main.temp_min+'˚')
+	$('.daily-container .info-wrap .wind .arrow').css('transform','rotate('+r.wind.deg+'deg)')
+	$('.daily-container .info-wrap .wind .speed').html(r.wind.speed+' ㎧')
+}
 
 function getWeather(lat,lon){
 	params.id = '';
@@ -135,12 +146,14 @@ function getWeather(lat,lon){
 function mapInit(){
 	var mapOption = { 
 		center: new kakao.maps.LatLng(35.8, 127.7), // 지도의 중심좌표
-		level: 13 // 지도의 확대 레벨
+		level: 13, // 지도의 확대 레벨
+		draggable:false,
+		zoomable:false,
+		disableDoubleClick:true,
 	};
 	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	map = new kakao.maps.Map($('#map')[0], mapOption);
-	map.setDraggable(false);
-	map.setZoomable(false);
+	
 
 	$(window).resize(onResize)	
 	$.get('../json/city.json',onGetCity);
