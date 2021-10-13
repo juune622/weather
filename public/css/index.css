@@ -101,9 +101,9 @@ body {
 	display: none;
 	flex: 100% 0 0;
 }
-.cont-wrapper .city{border:1px solid rgba(255,255,255,0.3);margin: 0.5%;}
-.cont-wrapper .city > .name{text-align: center;padding: 4px;font-size: 1.2em;background-color: rgba(0,0,0,0.7);}
-.cont-wrapper .city > .content{display: flex;align-items: center; line-height: 1.2;padding: 4px 8px;background-color: rgba(0,0,0,0.15);}
+.cont-wrapper .city{border:1px solid rgba(255,255,255,0.3);border-radius: 8px;overflow: hidden;}
+.cont-wrapper .city > .name{text-align: center;padding: 8px;font-size: 1.2em;background-color: rgba(0,0,0,0.7);}
+.cont-wrapper .city > .content{display: flex;align-items: center; line-height: 1.2;padding: 4px 12px 4px 4px;background-color: rgba(0,0,0,0.15);}
 
 .cont-wrapper>.weather-wrap {
 	flex: 100% 0 1;
@@ -131,9 +131,7 @@ body {
 		display: none;
 	}
 	.cont-wrapper > .city-wrap{
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
+		display: block;
 		flex: 100% 0 0;
 	}
 
