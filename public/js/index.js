@@ -132,7 +132,8 @@ function updateDaily(r){
 	$('.daily-container .info-wrap .temp .info').eq(0).html(r.main.temp_max+'˚')
 	$('.daily-container .info-wrap .temp .info').eq(1).html(r.main.temp_min+'˚')
 	$('.daily-container .info-wrap .wind .arrow').css('transform','rotate('+r.wind.deg+'deg)')
-	$('.daily-container .info-wrap .wind .speed').html(r.wind.speed+' ㎧')
+	$('.daily-container .info-wrap .wind .info').html(r.wind.speed+' ㎧')
+	$('.daily-container .info-wrap .date .title').html(moment(r.dt*1000).format('LLL'))
 }
 
 function getWeather(lat,lon){

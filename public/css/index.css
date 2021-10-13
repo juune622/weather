@@ -118,27 +118,26 @@ body {
 }
 
 
-.daily-container{background-color: rgba(0,0,0,0.5);border-radius: 8px;padding: 1.5em;box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+.daily-container{background-color: rgba(0,0,0,0.5);border-radius: 8px;padding: 1em;box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
-.daily-container .city{text-align: center;margin-bottom: 0.5em;}
-.daily-container .info-wrapper{display: flex;align-items: center;}
+.daily-container .city{text-align: center;margin-bottom: 0.75em;}
+.daily-container .info-wrapper{display: flex;align-items: center;justify-content: center;flex-wrap: wrap;}
 .daily-container .info-wrapper .temp-wrap{margin: 0 2em 0 1em;text-align: center;}
-.daily-container .info-wrapper .temp-wrap h3{font-size: 2.5em;line-height: 1;}
+.daily-container .info-wrapper .temp-wrap h3{font-size: 3em;line-height: 1;}
 .daily-container .info-wrapper .info-wrap > div{padding: 0.25em 0;}
-.daily-container .info-wrapper .info-wrap > .date{margin-top: 0.75em;font-size: 0.85em;}
-.daily-container .info-wrapper .info-wrap .desc{}
-.daily-container .info-wrapper .info-wrap .desc .main{font-size: 1.5em;}
-.daily-container .info-wrapper .info-wrap .title{font-size: 1.15em;padding-right: 0.5em;color: #ddd;}
-.daily-container .info-wrapper .info-wrap .divide{margin: 0 1em;}
+.daily-container .info-wrapper .info-wrap > .date{margin-top: 0.75em;font-size: 0.8em;}
+.daily-container .info-wrapper .info-wrap .main{font-size: 1.75em;}
+.daily-container .info-wrapper .info-wrap .title{padding-right: 0.25em;color: #ddd;}
+.daily-container .info-wrapper .info-wrap .info{font-size: 1.25em;}
+.daily-container .info-wrapper .info-wrap .divide{margin: 0 0.3em;}
 
 
 
 
 @media screen and (max-width: 1199px) {
-	
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1045px) {
 	.all-wrapper {
 		padding: 5% 3%;
 		height: 100vh;
@@ -156,6 +155,8 @@ body {
 	}
 
 	.cont-wrapper>.weather-wrap {
+		padding: 0 3%;
+		margin-top: 2em;
 		margin-left: 0;
 		flex: 100% 0 0;
 	}
@@ -176,5 +177,6 @@ body {
 		width: 80px;
 		transform: translate(10px, -5px);
 	}
-
+	.daily-container{padding: 1.5em 1em;}
+	.daily-container .info-wrapper{text-align: center;}
 }
