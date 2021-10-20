@@ -17,21 +17,25 @@ body {
 }
 
 
+.bt-arrow{font-size: 2em;position: absolute;top: 50%;transform: translateY(-50%);z-index: 9;cursor: pointer;}
+.bt-prev{left: -7px;}
+.bt-next{right: -7px;}
+
+
 
 
 
 /* 전체 */
 .all-wrapper {
 	width: 100%;
-	/* height: 100vh; */
+	min-height: 100vh;
 	position: relative;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center;
 	background-size: cover;
 	font-family: inherit;
 	padding: 3%;
 	color: #f9f9f9;
-	height: 100vh;
 }
 /* 타이틀 */
 .title-wrapper {
@@ -57,7 +61,8 @@ body {
 }
 
 .cont-wrapper>.map-wrap {
-	flex: 400px 0 0;
+	width: 400px;
+	flex: 0 0 400px;
 	height: 600px;
 	border-radius: 10px;
 }
@@ -102,20 +107,19 @@ body {
 
 .cont-wrapper > .city-wrap{
 	display: none;
-	flex: 100% 0 0;
 }
 .cont-wrapper .city-wrap{width: 100%;position: relative;padding: 0 3%;}
 .cont-wrapper .city-wrap .swiper-container{width: 100%;}
-.cont-wrapper .city-wrap .bt-arrow{font-size: 2em;position: absolute;top: 50%;transform: translateY(-50%);z-index: 9;cursor: pointer;}
-.cont-wrapper .city-wrap .bt-prev{left: -7px;}
-.cont-wrapper .city-wrap .bt-next{right: -7px;}
 .cont-wrapper .city-wrap .city{border:1px solid rgba(255,255,255,0.3);border-radius: 8px;overflow: hidden;cursor: pointer;}
 .cont-wrapper .city-wrap .city > .name{text-align: center;padding: 8px;font-size: 1.2em;background-color: rgba(0,0,0,0.7);}
 .cont-wrapper .city-wrap .city > .content{display: flex;align-items: center; line-height: 1.2;padding: 4px 12px 4px 4px;background-color: rgba(0,0,0,0.15);}
 
 .cont-wrapper>.weather-wrap {
-	flex: 100% 0 1;
+
+	flex: 0 1 100%;
 	margin-left: 5%;
+	width: calc(95%-400px);
+	flex-shrink: 1;
 }
 
 
@@ -133,12 +137,13 @@ body {
 .daily-container .info-wrapper .info-wrap .divide{margin: 0 0.3em;}
 
 
+.hourly-container{width: 100%;position: relative;padding: 0 3%;margin-top: 1em;text-align: center;}
 
 
 @media screen and (max-width: 1199px) {
 }
 
-@media screen and (max-width: 1045px) {
+@media screen and (max-width: 991px) {
 	.all-wrapper {
 		padding: 5% 3%;
 		height: 100vh;
@@ -156,18 +161,19 @@ body {
 	}
 
 	.cont-wrapper>.weather-wrap {
-		padding: 0 3%;
 		margin-top: 2em;
 		margin-left: 0;
 		flex: 100% 0 0;
+		max-width: 100%;
 	}
+	.daily-container{margin: 0 3%;}
 }
 
 @media screen and (max-width: 767px) {}
 
 @media screen and (max-width: 575px) {
 	.all-wrapper {
-		padding: 8%;
+		padding: 8% 3%;
 	}
 
 	.title-wrapper .title {

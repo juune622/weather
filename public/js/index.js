@@ -102,7 +102,7 @@ function onCreateMarker(r){
 	content += '</div></div></div>'
 	$('.city-wrap .swiper-container .swiper-wrapper').append(content);
 	if(cityCnt == cities.length){
-		var swiper =new Swiper('.city-wrap .swiper-container',{
+		var swiper =new Swiper('.city-wrap > .swiper-container',{
 			loop:true,
 			slidesPerView: 2,
 			spaceBetween: 10,
@@ -115,8 +115,8 @@ function onCreateMarker(r){
 				},
 			},
 			navigation: {
-				nextEl: ".city-wrap .bt-next",
-				prevEl: ".city-wrap .bt-prev",
+				nextEl: ".city-wrap > .bt-next",
+				prevEl: ".city-wrap > .bt-prev",
 			},
 		});
 	}
