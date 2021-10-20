@@ -55,30 +55,13 @@ body {
 	transform: translate(10px, -5px);
 }
 /* 날씨 */
-.cont-wrapper {
-	display: flex;
-	justify-content: space-between;
-}
+.cont-wrapper {display: flex; justify-content: space-between;}
+.cont-wrapper > .map-wrap {width: 400px; flex: 0 0 400px; height: 600px; border-radius: 8px;}
+.cont-wrapper > .city-wrap {display: none;} 
+.cont-wrapper > .weather-wrap {width: calc(95% - 400px); height: 600px; flex: 0 1 100%; margin-left: 5%; display: flex; flex-direction: column;}
 
-.cont-wrapper > .map-wrap {
-	width: 400px;
-	flex: 0 0 400px;
-	height: 600px;
-	border-radius: 10px;
-}
-.cont-wrapper > .city-wrap{
-	display: none;
-}
-.cont-wrapper > .weather-wrap {
-	width: calc(95% - 400px);
-	height: 600px;
-	flex: 0 1 100%;
-	margin-left: 5%;
-	flex-direction: column;
-}
-
-/* .cont-wrapper > .weather-wrap > div {flex: 0 0;}
-.cont-wrapper > .weather-wrap > :last-child {flex: 1 0;} */
+.cont-wrapper > .weather-wrap > div {flex: 0 0;}
+.cont-wrapper > .weather-wrap > :last-child {flex: 1 0;}
 
 .popper {
 	display: flex;
@@ -138,8 +121,16 @@ body {
 .daily-container .info-wrapper .info-wrap .divide{margin: 0 0.3em;}
 
 
-.hourly-container{width: 100%;position: relative;padding: 0 3%;margin-top: 1em;text-align: center;}
+.hourly-container{width: 100%;position: relative;padding: 0 3%;margin-top: 2em;text-align: center;}
 
+.weekly-container{margin-top: 2em;padding: 1em;border-top: 1px solid rgba(255, 255, 255, 0.3);width: 100%;overflow-y: auto;overflow-x: hidden;}
+
+.weekly-container > div {display: flex; align-items: center; padding: 0.25em 0;}
+.weekly-container .yoil {min-width: 150px; font-size: 1.25em;}
+.weekly-container .icon {margin-right: 2em;}
+.weekly-container .desc {margin-right: auto;}
+.weekly-container .min {min-width: 80px; text-align: right; color: rgba(255,255,255,0.7)}
+.weekly-container .max {min-width: 80px; text-align: right;}
 
 @media screen and (max-width: 1199px) {
 }
@@ -147,7 +138,7 @@ body {
 @media screen and (max-width: 991px) {
 	.all-wrapper {
 		padding: 5% 3%;
-		height: 100vh;
+		min-height: 100vh;
 	}
 	.cont-wrapper{
 		flex-wrap: wrap;
@@ -170,13 +161,16 @@ body {
 	.daily-container{margin: 0 3%;}
 }
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+	.weekly-container .icon {margin-right: auto;}
+	.weekly-container .desc {display: none;}
+}
 
 @media screen and (max-width: 575px) {
 	.all-wrapper {
 		padding: 8% 3%;
 	}
-
+	.title-wrapper{display: none;}
 	.title-wrapper .title {
 		font-size: 2em;
 	}
@@ -187,4 +181,5 @@ body {
 	}
 	.daily-container{padding: 1.5em 1em;}
 	.daily-container .info-wrapper{text-align: center;}
+	/* .bt-arrow{display: none;} */
 }
