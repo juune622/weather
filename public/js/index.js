@@ -31,7 +31,6 @@ var params = {
 
 
 navigator.geolocation.getCurrentPosition(onGetPosition, onGetPositionError);
-
 mapInit()
 
 /*************************** 이벤트콜백 ***********************************/

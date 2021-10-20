@@ -167,6 +167,7 @@ body {
 }
 
 @media screen and (max-width: 575px) {
+	body{overflow: hidden;}
 	.all-wrapper {
 		padding: 8% 3%;
 	}
