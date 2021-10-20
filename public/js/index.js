@@ -123,11 +123,40 @@ function onCreateMarker(r){
 }
 
 function onGetWeekly(r){
-	console.log(r)
+	console.log(r);
+	var html;
+	for(var i in r.hourly) {
+		html  = '<div class="swiper-slide">';
+		html += '	<div class="time-wrap">'+((i == 0) ? '현재' : moment(r.hourly[i].dt*1000).format('H')+'시('+moment(r.hourly[i].dt*1000).format('D')+'일)')+'</div>';
+		html += '	<div class="img-wrap">';
+		html += '		<img src="http://openweathermap.org/img/wn/'+r.hourly[i].weather[0].icon+'.png" class="mw-100">';
+		html += '	</div>';
+		html += '	<div class="temp-wrap">'+r.hourly[i].temp+'˚</div>';
+		html += '</div>';
+		$('.hourly-container .swiper-wrapper').append(html);
+	}
+	var swiper = new Swiper('.hourly-container > .swiper-container', {
+		slidesPerView: 3,
+		spaceBetween: 10,
+		navigation: {
+			nextEl: '.hourly-container > .bt-next',
+			prevEl: '.hourly-container > .bt-prev',
+		},
+		breakpoints: {
+			576: { slidesPerView: 4 },
+			768: { slidesPerView: 5 },
+			992: { slidesPerView: 6 },
+			1200: { slidesPerView:7 },
+		}
+	});
+
+	
 }
 
 
 /*************************** 사용자함수 ***********************************/
+
+
 
 function updateDaily(r){
 	var src = 'http://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png' 
@@ -141,6 +170,8 @@ function updateDaily(r){
 	$('.daily-container .info-wrap .wind .arrow').css('transform','rotate('+r.wind.deg+'deg)')
 	$('.daily-container .info-wrap .wind .info').html(r.wind.speed+' ㎧')
 	$('.daily-container .info-wrap .date .title').html(moment(r.dt*1000).format('LLL'))
+
+
 }
 
 function getWeather(param,param2){
