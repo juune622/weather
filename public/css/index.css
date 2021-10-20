@@ -181,5 +181,7 @@ body {
 	}
 	.daily-container{padding: 1.5em 1em;}
 	.daily-container .info-wrapper{text-align: center;}
+	.weekly-container{border: none;}
+	.weekly-container .icon {display: none;}
 	/* .bt-arrow{display: none;} */
 }
