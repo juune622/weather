@@ -71,7 +71,7 @@ function onCreateMarker(r){
 	})
 	
 	var content = '';
-	content+='<div class="popper '+city[0].class+'" onclick="getWeather('+city[0].id+')">';
+	content+='<div class="popper '+city[0].class+'" onclick="getWeather('+city[0].lat+','+city[0].lon+')">';
 	content+='<div class="img-wrap">';
 	content+='<img src="http://openweathermap.org/img/wn/'+r.weather[0].icon+'.png" alt="아이콘" class="mw-100">';
 	content+='</div>';
@@ -88,7 +88,7 @@ function onCreateMarker(r){
 	});
 	customOverlay.setMap(map);
 
-	content = '<div class="city swiper-slide" onclick="getWeather('+city[0].id+')">'
+	content = '<div class="city swiper-slide" onclick="getWeather('+city[0].lat+','+city[0].lon+')">'
 	content += '<div class="name">'+city[0].name+'</div>'
 	content += '<div class="content">'
 	content += '<div class="img-wrap">'
@@ -233,17 +233,18 @@ function updateBg(icon){
 	var bg;
 	switch(icon){
 		case '01d':
-		case '02d':
 			bg = '01d-bg.jpg';
 			break;
 		case '01n':
 		case '02n':
 			bg = '01n-bg.jpg';
 			break;
+		case '02d':
 		case '03d':
 		case '04d':
 			bg = '03d-bg.jpg';
 			break;
+		case '02n':
 		case '03n':
 		case '04n':
 			bg = '03n-bg.jpg';
